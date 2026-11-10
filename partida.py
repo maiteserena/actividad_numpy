@@ -1,3 +1,4 @@
+import numpy as np
 
 class Partida:
     """Representa una partida del campeonato con los puntajes obtenidos en ella."""
@@ -23,4 +24,7 @@ class Partida:
         Requisitos:
             - El cálculo debe realizarse con NumPy.
         """
-        pass
+        if len(self.puntuaciones) == 0:
+            raise ValueError("No hay puntuaciones para calcular el promedio.")
+        return np.mean(self.puntuaciones)
+        
