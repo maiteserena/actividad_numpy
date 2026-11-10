@@ -7,7 +7,7 @@ from jugador import Jugador
 # ---------------------------------------------------------------
 # Lectura del archivo
 # ---------------------------------------------------------------
-nombres_jugadores, puntuaciones_jugadores, partidas = RepositorioCSV.cargar_campeonato('campeones/Campeonato.csv')
+nombres_jugadores, puntuaciones_jugadores, partidas = RepositorioCSV.cargar_campeonato('actividad_numpy/Campeonato.csv')
 print("Nombres de jugadores:", nombres_jugadores)
 print("Puntuaciones de jugadores:\n", puntuaciones_jugadores)
 print("Partidas:", partidas)
@@ -30,8 +30,8 @@ print(f"Promedio por partida: {campeonato.promedios_por_partida()}")
 # ---------------------------------------------------------------
 # Métodos de NumPy investigados
 # ---------------------------------------------------------------
-print(f"Estadística investigada 1: {campeonato.estadistica_investigada_1()}")
-print(f"Estadística investigada 2: {campeonato.estadistica_investigada_2()}")
+print(f"Estadística investigada 1: {campeonato.mayor_y_menor_salto()}")
+print(f"Estadística investigada 2: {campeonato.mayor_y_menor_diferencia()}")
 
 # ---------------------------------------------------------------
 # Gráficas
