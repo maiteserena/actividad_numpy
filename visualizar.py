@@ -122,6 +122,7 @@ class Visualizador:
             - La gráfica debe cerrarse sola después de
               Visualizador.TIEMPO_EN_PANTALLA segundos.
         """
+<<<<<<< HEAD
         fig, ax = plt.subplots(figsize=(9, 6))       
         x_indices = np.arange(len(partidas))
         for i,nombre in enumerate(nombres):
@@ -139,3 +140,7 @@ class Visualizador:
         plt.pause(Visualizador.TIEMPO_EN_PANTALLA)
         plt.close(fig)
         plt.ioff()
+=======
+        pass
+
+>>>>>>> 59db886d35f18ae3838506c12e8e7854780444e4
