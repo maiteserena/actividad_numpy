@@ -22,7 +22,18 @@ class Visualizador:
             - La gráfica debe cerrarse sola después de
               Visualizador.TIEMPO_EN_PANTALLA segundos.
         """
-        pass
+        fig, ax = plt.subplots(figsize=(8, 5))
+        ax.bar(nombres, promedios, color='skyblue', edgecolor='navy')
+        ax.set_xlabel("Jugadores")
+        ax.set_ylabel("Puntaje Promedio")
+        ax.set_title("Promedio de Puntajes por Jugador")
+        plt.tight_layout()
+        plt.ion()
+        plt.show()
+        plt.pause(Visualizador.TIEMPO_EN_PANTALLA)
+        plt.close(fig)
+        plt.off()
+        
 
     @staticmethod
     def grafico_torta(nombres, puntuaciones):
