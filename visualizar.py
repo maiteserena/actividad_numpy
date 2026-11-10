@@ -32,7 +32,7 @@ class Visualizador:
         plt.show()
         plt.pause(Visualizador.TIEMPO_EN_PANTALLA)
         plt.close(fig)
-        plt.off()
+        plt.ioff()
         
 
     @staticmethod
@@ -94,3 +94,4 @@ class Visualizador:
               Visualizador.TIEMPO_EN_PANTALLA segundos.
         """
         pass
+
