@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 class Visualizador:
@@ -32,7 +33,7 @@ class Visualizador:
         plt.show()
         plt.pause(Visualizador.TIEMPO_EN_PANTALLA)
         plt.close(fig)
-        plt.off()
+        plt.ioff()
         
 
     @staticmethod
@@ -53,7 +54,18 @@ class Visualizador:
             - La gráfica debe cerrarse sola después de
               Visualizador.TIEMPO_EN_PANTALLA segundos.
         """
-        pass
+        totales=np.sum(puntuaciones, axis=1)
+        fig, ax = plt.subplots(figsize=(8, 5))
+        ax.pie(totales, labels=nombres, autopct='%1.1f', startangle=90)
+        ax.set_title("Proporción del Puntaje Total por Jugador")
+        ax.axis('equal')  
+        plt.tight_layout()
+        plt.ion()
+        plt.show()
+        plt.pause(Visualizador.TIEMPO_EN_PANTALLA)
+        plt.close(fig)
+        plt.ioff()
+
 
     @staticmethod
     def grafico_dispersion(nombres, puntuaciones, partidas):
@@ -73,7 +85,24 @@ class Visualizador:
             - La gráfica debe cerrarse sola después de
               Visualizador.TIEMPO_EN_PANTALLA segundos.
         """
-        pass
+        fig, ax = plt.subplots(figsize=(9, 6))
+        x_indices = np.arange(len(partidas))
+        for i, nombre in enumerate(nombres):
+            ax.scatter(x_indices, puntuaciones[i], label=nombre)
+        ax.set_xticks(x_indices)
+        ax.set_xticklabels(partidas)
+        ax.set_xlabel("Partidas")
+        ax.set_ylabel("Puntaje Obtenido")
+        ax.set_title("Puntajes Obtenidos por Jugador en Cada Partida")
+        ax.legend(title="Jugadores")
+        plt.tight_layout()
+        plt.ion()
+        plt.show()
+        plt.pause(Visualizador.TIEMPO_EN_PANTALLA)
+        plt.close(fig)
+        plt.ioff()
+
+
 
     @staticmethod
     def grafico_lineas(nombres, puntuaciones, partidas):
@@ -93,4 +122,20 @@ class Visualizador:
             - La gráfica debe cerrarse sola después de
               Visualizador.TIEMPO_EN_PANTALLA segundos.
         """
-        pass
+        fig, ax = plt.subplots(figsize=(9, 6))       
+        x_indices = np.arange(len(partidas))
+        for i,nombre in enumerate(nombres):
+            ax.plot(x_indices, puntuaciones[i, :], label=nombre, marker='o', linewidth=2, markersize=6)
+        ax.set_xticks(x_indices)
+        ax.set_xticklabels(partidas)
+        ax.set_xlabel("Partidas")
+        ax.set_ylabel("Puntaje")
+        ax.set_title("Puntajes por Jugador a lo Largo del Campeonato")
+        ax.legend(title="Jugadores")
+        ax.grid(True, linestyle='--', alpha=0.5)
+        plt.tight_layout()
+        plt.ion()
+        plt.show()
+        plt.pause(Visualizador.TIEMPO_EN_PANTALLA)
+        plt.close(fig)
+        plt.ioff()
