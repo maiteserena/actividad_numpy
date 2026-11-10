@@ -1,3 +1,5 @@
+from actividad_numpy import repositorio 
+import numpy as np
 
 class Jugador:
     """Representa un jugador del campeonato con sus puntuaciones."""
@@ -23,4 +25,5 @@ class Jugador:
         Requisitos:
             - El cálculo debe realizarse con NumPy.
         """
-        pass
+        return np.mean(self.puntuaciones)
+    
