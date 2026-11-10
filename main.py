@@ -7,7 +7,7 @@ from jugador import Jugador
 # ---------------------------------------------------------------
 # Lectura del archivo
 # ---------------------------------------------------------------
-nombres_jugadores, puntuaciones_jugadores, partidas = RepositorioCSV.cargar_campeonato('actividad_numpy/Campeonato.csv')
+nombres_jugadores, puntuaciones_jugadores, partidas = RepositorioCSV.cargar_campeonato('campeones/Campeonato.csv')
 print("Nombres de jugadores:", nombres_jugadores)
 print("Puntuaciones de jugadores:\n", puntuaciones_jugadores)
 print("Partidas:", partidas)
@@ -24,7 +24,7 @@ nombre_peor, puntaje_peor = campeonato.peor_jugador()
 print(f"El peor jugador es {nombre_peor} con un promedio de {puntaje_peor}")
 
 print(f"Promedio del campeonato: {campeonato.promedio_general()}")
-
+ 
 print(f"Promedio por partida: {campeonato.promedios_por_partida()}")
 
 # ---------------------------------------------------------------
@@ -36,7 +36,7 @@ print(f"Estadística investigada 2: {campeonato.mayor_y_menor_diferencia()}")
 # ---------------------------------------------------------------
 # Gráficas
 # ---------------------------------------------------------------
-Visualizador.grafico_promedios(nombres_jugadores, campeonato.promedios_por_jugador())
+Visualizador.grafico_promedios(nombres_jugadores, campeonato.promedios_por_jugador()[:, 1])
 Visualizador.grafico_torta(nombres_jugadores, puntuaciones_jugadores)
 Visualizador.grafico_dispersion(nombres_jugadores, puntuaciones_jugadores, partidas)
 Visualizador.grafico_lineas(nombres_jugadores, puntuaciones_jugadores, partidas)
