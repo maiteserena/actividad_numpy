@@ -1,4 +1,3 @@
-from actividad_numpy import repositorio 
 import numpy as np
 
 class Jugador:
